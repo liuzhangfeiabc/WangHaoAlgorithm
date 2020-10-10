@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 inline void _wrong(){
-	cout<<"ÎŞĞ§ÊäÈë";
+	cout<<"æ— æ•ˆè¾“å…¥";
 	exit(0);
 }
 string s;
@@ -29,7 +29,7 @@ void dfs(node *q,bool fg = 0){
 }
 int step;
 void out(vector<node*> left,vector<node*> right,int fr,int fs){
-	cout<<"²½Öè("<<++step<<") {";
+	cout<<"æ­¥éª¤("<<++step<<") {";
 	for(int i = 0;i < left.size();++i) dfs(left[i],1),cout<<"; ";
 	cout<<"} s==> {";
 	for(int i = 0;i < right.size();++i) dfs(right[i],1),cout<<"; ";
@@ -105,17 +105,17 @@ bool wanghao(vector<node*> left,vector<node*> right,int fr = 0,int fs = 0){
 	s2.clear();
 	for(int i = 0;i < left.size();++i) if(left[i] -> x > 0) s2.insert(left[i] -> x);
 	for(int i = 0;i < right.size();++i) if(right[i] -> x > 0 && s2.find(right[i] -> x) != s2.end()){
-		cout<<"²½Öè("<<nst<<")ÊÇ¹«Àí"<<endl; 
+		cout<<"æ­¥éª¤("<<nst<<")æ˜¯å…¬ç†"<<endl; 
 		return 1;
 	} 
-	cout<<"²½Öè("<<nst<<")ÎŞ·¨Ö¤Ã÷"<<endl;
+	cout<<"æ­¥éª¤("<<nst<<")æ— æ³•è¯æ˜"<<endl;
 	return 0;
 }
 #define chkzf(x) (((x) >= '0' && (x) <= '9') || ((x) >= 'A' && (x) <= 'Z') || ((x) >= 'a' && x <= 'z'))
 int main(){
-	cout<<"ÇëÊäÈë´ıÖ¤µÄÃüÌâ"<<endl;
-	cout<<"ÓÃÓÉÊı×Ö¡¢´óĞ´×ÖÄ¸¡¢Ğ¡Ğ´×ÖÄ¸×é³ÉµÄ×Ö·û´®±íÊ¾²»Í¬µÄÃüÌâ±äÔª£¬!±íÊ¾·ñ¶¨£¬&±íÊ¾ºÏÈ¡£¬|±íÊ¾ÎöÈ¡£¬>±íÊ¾ÔÌº¬£¬=±íÊ¾Ë«ÔÌº¬"<<endl;
-	cout<<"ÔËËãË³ĞòÎª()!&|>="<<endl;
+	cout<<"è¯·è¾“å…¥å¾…è¯çš„å‘½é¢˜"<<endl;
+	cout<<"ç”¨ç”±æ•°å­—ã€å¤§å†™å­—æ¯ã€å°å†™å­—æ¯ç»„æˆçš„å­—ç¬¦ä¸²è¡¨ç¤ºä¸åŒçš„å‘½é¢˜å˜å…ƒï¼Œ!è¡¨ç¤ºå¦å®šï¼Œ&è¡¨ç¤ºåˆå–ï¼Œ|è¡¨ç¤ºæå–ï¼Œ>è¡¨ç¤ºè•´å«ï¼Œ=è¡¨ç¤ºåŒè•´å«"<<endl;
+	cout<<"è¿ç®—é¡ºåºä¸º()!&|>="<<endl;
 	cin>>s;
 	for(int i = 0;i < s.size();++i){
 		node *p = new node();
@@ -180,19 +180,22 @@ int main(){
 	}
 	if(s1.size() != 1){
 		node *p = s1.top();s1.pop();
+		if(p -> x == -6) _wrong(); 
 		while(!s1.empty()){
 			node *ft = s1.top();s1.pop();
+			if(ft -> x == -6) _wrong(); 
 			if(s1.empty()) _wrong();
 			node *f2 = s1.top();s1.pop();
+			if(f2 -> x == -6) _wrong(); 
 			ft -> ls = f2;ft -> rs = p;ft -> hf = (f2 -> hf) && (p -> hf);
 			p = ft;
 		}
 		s1.push(p);
 	}
 	if(!(s1.top() -> hf)) _wrong();
-	cout<<"ºÏ·¨ÊäÈë"<<endl;
+	cout<<"åˆæ³•è¾“å…¥"<<endl;
 	vector<node*> left,right;right.push_back(s1.top());
-	if(wanghao(left,right)) cout<<"Ö¤Ã÷³É¹¦"<<endl;
-	else cout<<"Ö¤Ã÷Ê§°Ü"<<endl;
+	if(wanghao(left,right)) cout<<"è¯æ˜æˆåŠŸ"<<endl;
+	else cout<<"è¯æ˜å¤±è´¥"<<endl;
 	return 0;
 }
