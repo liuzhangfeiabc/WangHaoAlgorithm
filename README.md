@@ -1,4 +1,5 @@
-# 王浩算法 ## /WangHaoAlgorithm
+# 王浩算法 
+## WangHaoAlgorithm
 
 为迎合大家的需求对程序进行了一些小的改进，现在的版本更加亲民一些
 
