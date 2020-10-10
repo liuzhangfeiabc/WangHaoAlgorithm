@@ -125,6 +125,7 @@ int main(){
 			while(1){
 				if(s1.empty()) _wrong();
 				node *ft = s1.top();s1.pop();
+				if(ft -> x > 0 || ft -> ls != 0 || ft -> rs != 0) _wrong();
 				if(ft -> x == -6) break;
 				if(s1.empty()) _wrong();
 				node *f2 = s1.top();s1.pop();
@@ -168,6 +169,7 @@ int main(){
 			node *q = s1.top();s1.pop();
 			while(!s1.empty()){
 				node *ft = s1.top();
+				if(ft -> x > 0 || ft -> ls != 0 || ft -> rs != 0) _wrong();
 				if((ft -> x) < (p -> x)) break;
 				s1.pop();
 				if(s1.empty()) _wrong();
@@ -179,12 +181,12 @@ int main(){
 		} 
 	}
 	if(s1.empty()) _wrong();
-	if(s1.size() != 1){
+	if(s1.size() > 1){
 		node *p = s1.top();s1.pop();
 		if(p -> x == -6) _wrong(); 
 		while(!s1.empty()){
 			node *ft = s1.top();s1.pop();
-			if(ft -> x == -6 || ft -> x > 0) _wrong(); 
+			if(ft -> x == -6 || ft -> x > 0 || ft -> ls != 0 || ft -> rs != 0) _wrong(); 
 			if(s1.empty()) _wrong();
 			node *f2 = s1.top();s1.pop();
 			if(f2 -> x == -6) _wrong(); 
