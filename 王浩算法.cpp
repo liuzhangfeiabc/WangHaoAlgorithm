@@ -178,6 +178,7 @@ int main(){
 			s1.push(q);s1.push(p);
 		} 
 	}
+	if(s1.empty()) _wrong();
 	if(s1.size() != 1){
 		node *p = s1.top();s1.pop();
 		if(p -> x == -6) _wrong(); 
