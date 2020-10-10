@@ -183,7 +183,7 @@ int main(){
 		if(p -> x == -6) _wrong(); 
 		while(!s1.empty()){
 			node *ft = s1.top();s1.pop();
-			if(ft -> x == -6) _wrong(); 
+			if(ft -> x == -6 || ft -> x > 0) _wrong(); 
 			if(s1.empty()) _wrong();
 			node *f2 = s1.top();s1.pop();
 			if(f2 -> x == -6) _wrong(); 
